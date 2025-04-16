@@ -1,0 +1,2 @@
+C:/Users/user/Documents/Dastarkhana/dastarkhana/android/app/.cxx/Debug/424m282p/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/user/Documents/Dastarkhana/dastarkhana/android/app/.cxx/Debug/424m282p/arm64-v8a/CMakeFiles/rebuild_cache.dir
