@@ -1,0 +1,1 @@
+ C:\\Users\\user\\Documents\\Dastarkhana\\dastarkhana\\.dart_tool\\flutter_build\\167571995c1a210269925ad4783e4580\\native_assets.json: 
