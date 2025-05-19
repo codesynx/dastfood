@@ -18,7 +18,7 @@ import NotFound from "./components/shared/NotFound";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AllDeliveryMan from "./pages/deliveryman/all/all";
 import AddDeliveryMan from "./pages/deliveryman/add/add";
-import LivrerDetails from "./pages/deliveryman/details/livrerDetails";
+import DeliveryDetails from "./pages/deliveryman/details/deliveryDetails";
 import UpdateDriver from "./pages/deliveryman/update/UpdateDriver";
 
 function App() {
@@ -28,13 +28,9 @@ function App() {
                 <Sidebar />
                 <div className="w-full">
                     <Routes>
-                        {/* Route Login, accessible uniquement pour les utilisateurs non connectés */}
                         <Route path="/login" element={<Login />} />
-                        {/* add this line by Wass to correct the Notfound routes ....*/}
                         <Route path="/" element={<Login />} />
                         <Route path="*" element={<NotFound />} />
-
-                        {/* Routes protégées par PrivateRoute */}
 
                         <Route
                             path="/products/add"
@@ -99,7 +95,7 @@ function App() {
                                     <UpdateCategory />
                                 </PrivateRoute>
                             }
-                        />{/* deliveryman routes */}
+                        />
                          <Route
                             path="/drivers/"
                             element={
@@ -116,7 +112,6 @@ function App() {
                                 </PrivateRoute>
                             }
                         />
-                        {/* order routes */}
                         <Route
                             path="/orders/add"
                             element={
@@ -129,7 +124,7 @@ function App() {
                             path="/drivers/:id"
                             element={
                                 <PrivateRoute>
-                                    <LivrerDetails />
+                                    <DeliveryDetails />
                                 </PrivateRoute>
                             }
                         />

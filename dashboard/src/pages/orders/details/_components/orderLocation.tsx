@@ -44,7 +44,7 @@ export default function OrderLocation({ location }: Props) {
                     }&layer=mapnik&marker=${coordinates.lat},${
                         coordinates.lng
                     }`}
-                    title="Location Map"
+                    title="Жеткізу мекенжайы"
                 />
             </div>
         </>

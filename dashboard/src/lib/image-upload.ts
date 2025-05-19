@@ -14,6 +14,6 @@ export const imageUpload = async (file: File) => {
         });
         return response.data.secure_url;
     } catch (error) {
-        toast.error("An error occurred during image upload");
+        toast.error("Суретті жүктеу кезінде қате орын алды");
     }
 };

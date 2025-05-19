@@ -18,16 +18,16 @@ export default function CategorySelect() {
             .then((data) => setAllCategories(data))
             .catch((err) => {
                 console.error(err);
-                toast.error("There is an error while fetching the categories");
+                toast.error("Категорияларды жүктеу кезінде қате пайда болды");
             });
     }, []);
     const setSelectedCategory = useStore((s) => s.setCategoryId);
     return (
         <div className=" mt-3">
-            <Label>Category</Label>
+            <Label>Категория</Label>
             <Select onValueChange={(v) => setSelectedCategory(Number(v))}>
                 <SelectTrigger className="h-[40px]">
-                    <SelectValue placeholder="Category"></SelectValue>
+                    <SelectValue placeholder="Категория"></SelectValue>
                 </SelectTrigger>
                 <SelectContent className="max-h-[400px]">
                     {allCategories.map((c) => (

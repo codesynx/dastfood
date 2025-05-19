@@ -16,13 +16,13 @@ export default function SaveAndCancelBtns(props: Props) {
                     onClick={props.onCancel}
                     variant={"outline"}
                     className="bg-neutral-200 h-[40px]">
-                    Cancel
+                    Бас тарту
                 </Button>
                 <Button
                     disabled={props.disabled}
                     onClick={props.onSaveClick}
                     className="  h-[40px]">
-                    Save changes
+                    Сақтау
                 </Button>
             </>
         </div>

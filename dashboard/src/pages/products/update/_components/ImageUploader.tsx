@@ -29,17 +29,17 @@ export default function ImageUploader(props: { className?: string }) {
             }
             setMainPreview(URL.createObjectURL(file));
             setIsUploadingMain(true);
-            toast.loading("Uploading your image...");
+            toast.loading("Суретіңіз жүктелуде...");
 
             imageUpload(file)
                 .then((data) => {
                     toast.dismiss();
-                    toast.success("Image uploaded successfully.");
+                    toast.success("Сурет сәтті жүктелді.");
                     setMainImageUrl(data);
                 })
                 .catch(() => {
                     toast.dismiss();
-                    toast.error("Error while uploading your image...");
+                    toast.error("Суретті жүктеу кезінде қате орын алды...");
                     if (mainPreview) URL.revokeObjectURL(mainPreview);
                 })
                 .finally(() => {
@@ -66,20 +66,20 @@ export default function ImageUploader(props: { className?: string }) {
             return await imageUpload(f);
         });
 
-        toast.loading("uploading your iamges ...");
+        toast.loading("Суреттеріңіз жүктелуде...");
         setIsUploadingSecondary(true);
 
         Promise.all(uploadPromises)
             .then((data) => {
                 toast.dismiss();
-                toast.success("Uploaded successfully");
+                toast.success("Сәтті жүктелді");
                 setOtherImagesUrls([...otherImagesUrls, ...data]);
                 setSecondaryPreviews([]);
             })
             .catch((err) => {
                 toast.dismiss();
                 console.error(err);
-                toast.error("Error while uploading the image");
+                toast.error("Суретті жүктеу кезінде қате пайда болды");
                 setSecondaryPreviews([]);
             })
             .finally(() => setIsUploadingSecondary(false));

@@ -2,7 +2,8 @@ import LoadingPage from "@/components/shared/LoadingPage";
 import TopBar from "@/components/shared/topBar";
 import { Button } from "@/components/ui/button";
 import { apiInstance } from "@/lib/axios";
-import { Calendar, Clock, DollarSign, Edit, ShoppingBag } from "lucide-react";
+import { Calendar, Clock, Edit, ShoppingBag } from "lucide-react";
+import TengeSignIcon from "@/components/ui/TengeSignIcon"; // Added TengeSignIcon import
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useParams } from "react-router-dom";
@@ -16,7 +17,7 @@ export default function ProductDetails() {
         apiInstance
             .get(`/products/${id}`)
             .then((data) => setProduct(data.data))
-            .catch(() => toast.error("there is some errors"))
+            .catch(() => toast.error("Бірнеше қате орын алды"))
             .finally(() => setIsLoading(false));
     }, []);
 
@@ -26,7 +27,7 @@ export default function ProductDetails() {
     return (
         <main className="flex">
             <div className="w-full ">
-                <TopBar text="Product details" />
+                <TopBar text="Тағам туралы ақпарат" />
                 <div className="p-10">
                     <div className="container p-10 mx-auto w-full   bg-white border rounded-lg">
                         <div className="flex justify-between items-center mb-6">
@@ -36,7 +37,7 @@ export default function ProductDetails() {
                             <Link to={`/products/update/${id}`}>
                                 <Button className="bg-blue-500 font-medium  text-white px-4 py-2 rounded-md hover:bg-blue-600    flex items-center">
                                     <Edit className="mr-2" size={18} />
-                                    Edit Product
+                                    Тағамды өзгерту
                                 </Button>
                             </Link>
                         </div>
@@ -55,23 +56,23 @@ export default function ProductDetails() {
                             <div className="md:col-span-2">
                                 <div className="grid grid-cols-2 gap-4">
                                     <InfoCard
-                                        icon={<DollarSign />}
-                                        title="Price"
+                                        icon={<TengeSignIcon />}
+                                        title="Бағасы"
                                         value={`${product?.price} ₸`}
                                     />
                                     <InfoCard
                                         icon={<ShoppingBag />}
-                                        title="Category"
+                                        title="Категория"
                                         value={product?.category.name}
                                     />
                                     <InfoCard
                                         icon={<Clock />}
-                                        title="Prep Time"
+                                        title="Дайындалу уақыты"
                                         value={product?.preparationDuration}
                                     />
                                     <InfoCard
                                         icon={<Calendar />}
-                                        title="Created At"
+                                        title="Қосылған уақыты"
                                         value={new Date(
                                             product?.createdAt!
                                         ).toLocaleDateString()}
@@ -80,7 +81,7 @@ export default function ProductDetails() {
 
                                 <div className="mt-6">
                                     <h3 className="font-semibold mb-2">
-                                        Description:
+                                        Сипаттамасы:
                                     </h3>
                                     <p className="text-gray-600">
                                         {product?.description}
@@ -89,7 +90,7 @@ export default function ProductDetails() {
 
                                 <div className="mt-4">
                                     <h3 className="font-semibold mb-2">
-                                        Available Sizes:
+                                        Қолжетімді өлшемдер:
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
                                         {product?.sizes.map((size, index) => (
@@ -107,7 +108,7 @@ export default function ProductDetails() {
                         {/* Other Images */}
                         <div className="mt-8">
                             <h3 className="font-semibold mb-4">
-                                Other Images:
+                                Басқа суреттер:
                             </h3>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                 {product?.otherImages.map((img, index) => (

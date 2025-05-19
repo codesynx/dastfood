@@ -14,21 +14,21 @@ export default function ProductTable({ products }: Props) {
                     <thead className="bg-mainColor/20">
                         <tr>
                             <th className="px-6 py-5 text-center font-bold text-sm tracking-wider">
-                                Image
+                                Суреті
                             </th>
                             <th className="px-6 py-5 text-center font-bold text-sm tracking-wider">
-                                Name
+                                Атауы
                             </th>
                             <th className="px-6 py-5 text-center font-bold text-sm tracking-wider">
-                                Price
+                                Бағасы
                             </th>
                             <th className="px-6 py-5 text-center font-bold text-sm tracking-wider">
-                                Category
+                                Категория
                             </th>
                             <th className="px-6 py-5 text-center font-bold text-sm tracking-wider">
-                                Created At
+                                Қосылған уақыты
                             </th>
-                            <th>Action</th>
+                            <th>Әрекет</th>
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y border">

@@ -24,7 +24,7 @@ export default function Buttons(props: Props) {
                 data.setCategoryId(product.category.id);
                 data.setDescription(product.description);
                 data.setDuration(
-                    product.preparationDuration.split("min").join("")
+                    product.preparationDuration.split("мин").join("")
                 );
                 data.setMainImage(product.mainImage);
                 data.setOtherImages(product.otherImages);
@@ -32,7 +32,7 @@ export default function Buttons(props: Props) {
                 data.setRating(Number(product.rating));
                 data.setSizes(product.sizes);
             })
-            .catch(() => toast.error("Product was not found"))
+            .catch(() => toast.error("Тағам табылмады"))
             .finally(() => props.stopPageLoading());
     }, []);
 
@@ -43,7 +43,7 @@ export default function Buttons(props: Props) {
             price: data.price,
             otherImages: data.otherImages,
             description: data.description,
-            preparationDuration: data.duration + "min",
+            preparationDuration: data.duration + "мин",
             rating: data.rating,
             sizes: data.sizes,
             categoryId: data.categoryId,
@@ -59,18 +59,18 @@ export default function Buttons(props: Props) {
             return;
         }
 
-        toast.loading("Creating your product");
+        toast.loading("Тағам жаңартылып жатыр...");
         setIsLoading(true);
         apiInstance
             .put(`/products/update/${productId}`, payload)
             .then(() => {
                 toast.dismiss();
-                toast.success("Product updated successfully");
+                toast.success("Тағам сәтті жаңартылды");
                 wait(100).then(() => window.location.reload());
             })
             .catch(() => {
                 toast.dismiss();
-                toast.error("Error while creating you product");
+                toast.error("Тағам жаңартылмады");
             })
             .finally(() => setIsLoading(false));
     };

@@ -31,12 +31,12 @@ export default function DeleteProductBtn({ id }: Props) {
         apiInstance
             .delete(`/products/${id}`)
             .then(() => {
-                toast.success("Product is deleted");
+                toast.success("Тағам жойылды");
                 setIsOpen(false);
                 setIsLoading(false);
                 navigate(0);
             })
-            .catch(() => toast.error("Product is not deleted"));
+            .catch(() => toast.error("Тағам жойылмады"));
     };
 
     return (
@@ -49,11 +49,10 @@ export default function DeleteProductBtn({ id }: Props) {
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>
-                        Are you absolutely sure?
+                        Сіз нақты сенімдісіз бе?
                     </AlertDialogTitle>
                     <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete this product.
+                        Бұл әрекетті болдырмау мүмкін емес. Бұл курьер біржола өшіріледі.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
@@ -61,7 +60,7 @@ export default function DeleteProductBtn({ id }: Props) {
                         disabled={isLoading}
                         onClick={() => !isLoading && setIsOpen(false)}
                         className="font-semibold ">
-                        Cancel
+                        Бас тарту
                     </AlertDialogCancel>
                     <AlertDialogAction
                         asChild
@@ -69,7 +68,7 @@ export default function DeleteProductBtn({ id }: Props) {
                         <LoadingButton
                             onClick={handleConfirm}
                             isLoading={isLoading}>
-                            Delete
+                            Өшіру
                         </LoadingButton>
                     </AlertDialogAction>
                 </AlertDialogFooter>

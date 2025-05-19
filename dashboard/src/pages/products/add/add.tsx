@@ -7,7 +7,7 @@ export default function AddProduct() {
     return (
         <main className="flex ">
             <section className="w-full pb-10">
-                <TopBar text="Add new product">
+                <TopBar text="Жаңа тағам қосу">
                     <Buttons />
                 </TopBar>
                 <section className="grid gap-8 grid-cols-2 h-auto pt-5 px-10  w-full  ">

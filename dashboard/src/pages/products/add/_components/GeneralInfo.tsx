@@ -16,34 +16,34 @@ export default function GeneralInfo() {
     return (
         <section className={cn("p-5 w-full border-2  rounded-xl")}>
             <div className="flex items-center text-black pb-3 font-semibold text-[20px] ">
-                Information <Info className="ml-auto opacity-40" />
+                Тағам туралы ақпарат <Info className="ml-auto opacity-40" />
             </div>
             <div>
-                <Label>Name</Label>
+                <Label>Атауы</Label>
                 <Input
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     type="text"
-                    placeholder="Product name"
+                    placeholder="Тағам атауы"
                 />
 
                 <div className="flex space-x-4 mt-3">
                     <div className="flex-1">
-                        <Label>Price</Label>
+                        <Label>Бағасы</Label>
                         <Input
                             value={price}
                             onChange={(e) =>
                                 setPrice(Number(e.target.value || 0))
                             }
                             type="number"
-                            placeholder="Prix"
+                            placeholder="Бағасы"
                         />
                     </div>
                 </div>
                 <CategorySelect />
                 <div className="flex space-x-4 mt-3">
                     <div className="flex-1">
-                        <Label>Rating</Label>
+                        <Label>Рейтингі</Label>
                         <Input
                             max={5}
                             min={0}
@@ -52,7 +52,7 @@ export default function GeneralInfo() {
                                 setRating(Number(e.target.value || 0))
                             }
                             type="number"
-                            placeholder="Prix"
+                            placeholder="Рейтингі"
                         />
                     </div>
                 </div>

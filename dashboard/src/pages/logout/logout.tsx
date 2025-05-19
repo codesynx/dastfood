@@ -7,10 +7,10 @@ const Logout: React.FC = () => {
 
   const handleLogout = () => {
     logout();
-    window.location.href = "/login"; // Rediriger après déconnexion
+    window.location.href = "/login"; 
   };
 
-  return <button onClick={handleLogout}>Logout</button>;
+  return <button onClick={handleLogout}>Шығу</button>;
 };
 
 export default Logout;

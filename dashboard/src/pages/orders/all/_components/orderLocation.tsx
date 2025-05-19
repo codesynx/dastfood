@@ -57,12 +57,12 @@ export default function OrderLocation({ location, className }: Props) {
                                 className
                             )}>
                             <MapPin className="w-4 h-4 mr-1" />
-                            View Map
+                            Картаны қарау
                         </Button>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-xl">
                         <DialogHeader>
-                            <DialogTitle>Location Map</DialogTitle>
+                            <DialogTitle>Жеткізу мекенжайы</DialogTitle>
                         </DialogHeader>
                         <div className="h-96 bg-gray-100 rounded-lg overflow-hidden">
                             <iframe
@@ -76,7 +76,7 @@ export default function OrderLocation({ location, className }: Props) {
                                 }&layer=mapnik&marker=${coordinates.lat},${
                                     coordinates.lng
                                 }`}
-                                title="Location Map"
+                                title="Жеткізу мекенжайы"
                             />
                         </div>
                     </DialogContent>

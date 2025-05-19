@@ -11,32 +11,32 @@ export const SIDEBAR_ITEMS = [
     {
         Icon: Home,
         link: "/dashboard",
-        title: "Dashboard",
+        title: "Басқару панелі",
     },
     {
         Icon: Truck,
         link: "/orders",
-        title: "Orders",
+        title: "Тапсырыстар",
         notifs: 3,
     },
     {
         Icon: ShoppingCart,
         link: "/products",
-        title: "Products",
+        title: "Тауарлар",
     },
     {
         Icon: Tags,
         link: "/categories",
-        title: "Categories",
+        title: "Категориялар",
     },
     {
         Icon: Users2,
         link: "/drivers",
-        title: "Drivers",
+        title: "Курьерлер",
     },
     {
         Icon: Settings,
         link: "/settings",
-        title: "Settings",
+        title: "Баптаулар",
     },
 ] as const;

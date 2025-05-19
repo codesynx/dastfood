@@ -116,9 +116,17 @@ const Option = memo(
 );
 
 const TitleSection = ({ open }: { open: boolean }) => {
+    const [showProfileMenu, setShowProfileMenu] = useState(false);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        navigate("/login");
+    };
+
     return (
         <div className="mb-3 border-b border-zinc-300/80 pb-3">
-            <div className="flex cursor-pointer items-center justify-between rounded-md transition-colors hover:bg-zinc-100">
+            <div className="relative flex cursor-pointer items-center justify-between rounded-md transition-colors hover:bg-zinc-100">
                 <div className="flex items-center gap-2">
                     <Logo />
                     {open && (
@@ -136,7 +144,26 @@ const TitleSection = ({ open }: { open: boolean }) => {
                         </motion.div>
                     )}
                 </div>
-                {open && <ChevronDown className="mr-2 opacity-50" />}
+                {open && (
+                    <ChevronDown 
+                        className="mr-2 opacity-50 cursor-pointer" 
+                        onClick={() => setShowProfileMenu(!showProfileMenu)}
+                    />
+                )}
+                
+                {open && showProfileMenu && (
+                    <div className="absolute right-0 top-10 z-10 w-48 bg-white rounded-md shadow-lg border border-zinc-200">
+                        <div className="py-1">
+                            <button 
+                                onClick={handleLogout}
+                                className="flex w-full items-center px-4 py-2 text-sm text-red-700 hover:bg-zinc-100"
+                            >
+                                <LogOutIcon className="mr-2 h-4 w-4" />
+                                Шығу
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
@@ -197,7 +224,7 @@ const ToggleClose = ({
                             once: true,
                         }}
                         className="text-xs font-medium">
-                        Close
+                        Жабу
                     </motion.span>
                 )}
             </div>
@@ -228,7 +255,7 @@ const Logout = memo(({ open }: { open: boolean }) => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.125 }}
                     className={cn("text-sm font-medium")}>
-                    Logout
+                    Шығу
                 </motion.span>
             )}
         </motion.button>

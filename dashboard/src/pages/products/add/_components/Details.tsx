@@ -21,27 +21,27 @@ export default function Details() {
     return (
         <section className={cn("p-5 w-full  border-2  rounded-xl")}>
             <div className="flex items-center text-black pb-3 font-semibold text-[20px] ">
-                Other details <Info className="ml-auto opacity-40" />
+                Қосымша <Info className="ml-auto opacity-40" />
             </div>
             <div>
-                <Label>Preparation duration (in minutes)</Label>
+                <Label>Дайындалу уақыты (минутпен)</Label>
                 <Input
                     onChange={(e) => setDuration(e.target.value)}
                     value={duration}
                     type="number"
-                    placeholder="Duration in minuts"
+                    placeholder="Дайындалу уақыты"
                 />
                 <div className="mt-3">
-                    <Label>Description</Label>
+                    <Label>Сипаттама</Label>
                     <Textarea
                         onChange={(e) => setDescription(e.target.value)}
                         value={description}
-                        placeholder="Description"
+                        placeholder="Сипаттама"
                         className={cn("w-full p-2 border rounded-md h-fit")}
                     />
                 </div>
                 <div className="mt-3">
-                    <Label>Sizes</Label>
+                    <Label>Өлшемдер</Label>
                     <form
                         onSubmit={(e) => {
                             e.preventDefault();
@@ -55,13 +55,13 @@ export default function Details() {
                             value={sizeInput}
                             onChange={(e) => setSizeInput(e.target.value)}
                             type="text"
-                            placeholder="Sizes"
+                            placeholder="Өлшем"
                             className="flex-grow"
                         />
                         <Button
                             className="w-fit border-mainColor text-mainColor opacity-80  border-2 flex items-center px-3 h-[40px]   justify-center"
                             variant={"outline"}>
-                            Add size
+                            Өлшем қосу
                         </Button>
                     </form>
                     <div className="mt-4 flex items-center gap-1 flex-wrap">

@@ -1,10 +1,10 @@
 import LoadingPage from "@/components/shared/LoadingPage";
 import TopBar from "@/components/shared/topBar";
 import { apiInstance } from "@/lib/axios";
+import TengeSignIcon from "@/components/ui/TengeSignIcon"; // Added TengeSignIcon import
 import {
     Calendar,
     Check,
-    DollarSign,
     MapPin,
     Package,
     Phone,
@@ -40,11 +40,11 @@ export default function OrderDetails() {
     }
 
     if (!order) {
-        return <div>Order not found</div>;
+        return <div>Тапсырыс табылмады</div>;
     }
 
     const validateOrder = () => {
-        toast.loading("loading...");
+        toast.loading("жүктелуде...");
 
         apiInstance
             .patch(`/orders/update-status/${id}`, {
@@ -52,25 +52,25 @@ export default function OrderDetails() {
             })
             .then(() => {
                 toast.dismiss();
-                toast.success("Updated successfully");
+                toast.success("Сәтті жаңартылды");
                 navigate(0);
             })
             .catch(() => {
                 toast.dismiss();
-                toast.error("There is an error");
+                toast.error("Қате орын алды");
             });
     };
 
     return (
         <main className="flex">
             <div className="w-full">
-                <TopBar text="Order Details" />
+                <TopBar text="Тапсырыс туралы мәлімет" />
                 <section className="p-10 w-full">
                     <div className="container mx-auto px-4 py-8 bg-white shadow-lg rounded-lg">
                         <div className="flex justify-between items-center mb-6">
                             <div className="flex items-center gap-2">
                                 <div className="text-2xl  font-bold  gap-4">
-                                    <p> Order #{order.id}</p>
+                                    <p> Тапсырыс #{order.id}</p>
                                 </div>
                                 <StatusComp status={order.status as any} />
                             </div>
@@ -90,21 +90,21 @@ export default function OrderDetails() {
                             {/* Customer Information */}
                             <div className="space-y-4">
                                 <h2 className="text-lg font-semibold">
-                                    Customer Details
+                                    Тапсырыс беруші туралы мәлімет
                                 </h2>
                                 <InfoCard
                                     icon={<User className="text-blue-500" />}
-                                    title="Name"
+                                    title="Аты-жөні"
                                     value={order.customer.name}
                                 />
                                 <InfoCard
                                     icon={<Phone className="text-blue-500" />}
-                                    title="Phone"
+                                    title="Телефон нөмірі"
                                     value={order.customer.phone}
                                 />
                                 <InfoCard
                                     icon={<MapPin className="text-blue-500" />}
-                                    title="Delivery Location"
+                                    title="Жеткізу мекенжайы"
                                     value={""}>
                                     <OrderLocation
                                         location={order.location}
@@ -116,7 +116,7 @@ export default function OrderDetails() {
                             {/* Delivery Man Information */}
                             <div className="space-y-4">
                                 <h2 className="text-lg font-semibold">
-                                    Delivery Details
+                                    Жеткізу туралы мәлімет
                                 </h2>
                                 {order.deliveryMan ? (
                                     <>
@@ -124,21 +124,21 @@ export default function OrderDetails() {
                                             icon={
                                                 <Truck className="text-green-500" />
                                             }
-                                            title="Delivery Person"
+                                            title="Курьер"
                                             value={order.deliveryMan.name}
                                         />
                                         <InfoCard
                                             icon={
                                                 <Phone className="text-green-500" />
                                             }
-                                            title="Contact"
+                                            title="Телефон нөмірі"
                                             value={order.deliveryMan.phone}
                                         />
                                     </>
                                 ) : (
                                     <div className="bg-yellow-50 p-4 rounded-lg">
                                         <p className="text-yellow-700">
-                                            No delivery person assigned yet
+                                            Курьер әлі тағайындалмаған
                                         </p>
                                     </div>
                                 )}
@@ -146,20 +146,20 @@ export default function OrderDetails() {
                             {/* Order Information */}
                             <div className="space-y-4">
                                 <h2 className="text-lg font-semibold">
-                                    Order Information
+                                    Тапсырыс туралы ақпарат
                                 </h2>
                                 <InfoCard
                                     icon={
-                                        <DollarSign className="text-purple-500" />
+                                        <TengeSignIcon className="text-purple-500" />
                                     }
-                                    title="Total Amount"
+                                    title="Жалпы сома"
                                     value={`${order.totalPrice} ₸`}
                                 />
                                 <InfoCard
                                     icon={
                                         <Calendar className="text-purple-500" />
                                     }
-                                    title="Order Date"
+                                    title="Тапсырыс күні"
                                     value={new Date(
                                         order.createdAt
                                     ).toLocaleDateString()}
@@ -168,7 +168,7 @@ export default function OrderDetails() {
                                     icon={
                                         <Package className="text-purple-500" />
                                     }
-                                    title="Total Items"
+                                    title="Жалпы тағам саны"
                                     value={order.orderItems.length.toString()}
                                 />
                             </div>
@@ -176,26 +176,26 @@ export default function OrderDetails() {
                         {/* Order Items */}
                         <div className="mt-8">
                             <h2 className="text-xl font-semibold mb-4">
-                                Order Items
+                                Тапсырыстағы тағамдар
                             </h2>
                             <div className="overflow-x-auto">
                                 <table className="min-w-full bg-white">
                                     <thead className="bg-gray-100">
                                         <tr>
                                             <th className="py-3 px-4 text-left">
-                                                Product
+                                                Тағам
                                             </th>
                                             <th className="py-3 px-4 text-center">
-                                                Price
+                                                Бағасы
                                             </th>
                                             <th className="py-3 px-4 text-center">
-                                                Quantity
+                                                Саны
                                             </th>
                                             <th className="py-3 px-4 text-center">
-                                                Subtotal
+                                                Аралық сома
                                             </th>
                                             <th className="py-3 px-4 text-center">
-                                                Preparation Time
+                                                Дайындалу уақыты
                                             </th>
                                         </tr>
                                     </thead>

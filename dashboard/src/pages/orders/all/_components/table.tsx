@@ -54,7 +54,7 @@ export default function OrdersTable({ orders }: Props) {
     };
 
     const validateOrder = (orderId: number) => {
-        toast.loading("loading...");
+        toast.loading("жүктелуде...");
 
         apiInstance
             .patch(`/orders/update-status/${orderId}`, {
@@ -62,12 +62,12 @@ export default function OrdersTable({ orders }: Props) {
             })
             .then(() => {
                 toast.dismiss();
-                toast.success("Updated successfully");
+                toast.success("Сәтті жаңартылды");
                 navigate(0);
             })
             .catch(() => {
                 toast.dismiss();
-                toast.error("There is an error");
+                toast.error("Қате пайда болды");
             });
     };
 
@@ -96,28 +96,28 @@ export default function OrdersTable({ orders }: Props) {
                     <thead className="bg-mainColor/20">
                         <tr>
                             <th className="px-6 py-3 text-center font-bold text-sm tracking-wider">
-                                Customer
+                                Пайдаланушы
                             </th>
                             <th className="px-6 py-3 text-center font-bold text-sm tracking-wider">
-                                Total Price
+                                Жалпы баға
                             </th>
                             <th className="px-6 py-3 text-center font-bold text-sm tracking-wider">
-                                Location
+                                Орналасқан жері
                             </th>
                             <th className="px-6 py-3 text-center font-bold text-sm tracking-wider">
-                                Status
+                                Күйі
                             </th>
                             <th className="px-6 py-3 text-center font-bold text-sm tracking-wider">
-                                Delivery Person
+                                Курьер
                             </th>
                             <th className="px-6 py-3 text-center font-bold text-sm tracking-wider">
-                                Created At
+                                Жасалған уақыты
                             </th>
                             <th className="px-6 py-3 text-center font-bold text-sm tracking-wider">
-                                Items
+                                Тағамдар
                             </th>
                             <th className="px-6 py-3 text-center font-bold text-sm tracking-wider">
-                                Actions
+                                Әрекеттер
                             </th>
                         </tr>
                     </thead>
@@ -162,7 +162,7 @@ export default function OrdersTable({ orders }: Props) {
                                             </div>
                                         ) : (
                                             <span className="text-sm text-gray-500">
-                                                Not Assigned
+                                                Тағайындалмаған
                                             </span>
                                         )}
                                     </td>
@@ -231,7 +231,7 @@ export default function OrdersTable({ orders }: Props) {
                                             }`}>
                                             <div className="bg-gray-50 p-4">
                                                 <h4 className="text-sm font-semibold mb-4">
-                                                    Order Items
+                                                    Тапсырыстағы тағамдар
                                                 </h4>
                                                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                                                     {order.orderItems.map(
@@ -287,8 +287,7 @@ export default function OrdersTable({ orders }: Props) {
                                                                             </span>
                                                                             <div className="flex items-center gap-2">
                                                                                 <span className="text-xs text-gray-500">
-                                                                                    Prep
-                                                                                    time:
+                                                                                    Дайындалу уақыты:
                                                                                 </span>
                                                                                 <span className="text-xs font-medium text-gray-700">
                                                                                     {

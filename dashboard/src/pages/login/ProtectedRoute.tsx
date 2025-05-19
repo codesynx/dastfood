@@ -6,10 +6,10 @@
 //   const { user } = useAuth(); // Récupérer l'utilisateur authentifié
 
 //   if (!user) {
-//     return <Navigate to="/login" />; // Rediriger vers login si non connecté
+//     return <Navigate to="/login" />; 
 //   }
 
-//   return <>{children}</>; // Afficher la page si connecté
+//   return <>{children}</>; 
 // };
 
 // export default ProtectedRoute;

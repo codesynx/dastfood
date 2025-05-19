@@ -34,12 +34,12 @@ export default function DeleteBtn({ id, className }: Props) {
         apiInstance
             .delete(`/orders/${id}`)
             .then(() => {
-                toast.success("Order is deleted");
+                toast.success("Тапсырыс жойылды");
                 setIsOpen(false);
                 setIsLoading(false);
                 navigate(-1);
             })
-            .catch(() => toast.error("Order was not deleted"));
+            .catch(() => toast.error("Тапсырысты жою мүмкін болмады"));
     };
 
     return (
@@ -56,11 +56,10 @@ export default function DeleteBtn({ id, className }: Props) {
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>
-                        Are you absolutely sure?
+                        Сіз нақты сенімдісіз бе?
                     </AlertDialogTitle>
                     <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete this order.
+                        Бұл әрекетті болдырмау мүмкін емес. Бұл курьер біржола өшіріледі.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
@@ -68,7 +67,7 @@ export default function DeleteBtn({ id, className }: Props) {
                         disabled={isLoading}
                         onClick={() => !isLoading && setIsOpen(false)}
                         className="font-semibold ">
-                        Cancel
+                        Бас тарту
                     </AlertDialogCancel>
                     <AlertDialogAction
                         asChild
@@ -76,7 +75,7 @@ export default function DeleteBtn({ id, className }: Props) {
                         <LoadingButton
                             onClick={handleConfirm}
                             isLoading={isLoading}>
-                            Delete
+                            Өшіру
                         </LoadingButton>
                     </AlertDialogAction>
                 </AlertDialogFooter>

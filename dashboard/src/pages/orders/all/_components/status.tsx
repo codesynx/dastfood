@@ -25,52 +25,52 @@ export default function Status({ status }: Props) {
             color: "text-red-500",
             bgColor: "bg-red-100",
             borderColor: "border-red-200",
-            label: "Not Validated",
+            label: "Расталмаған",
         },
         VALIDATED: {
             icon: CheckCircle2,
             color: "text-green-500",
             bgColor: "bg-green-100",
             borderColor: "border-green-200",
-            label: "Validated",
+            label: "Расталған",
         },
         READY: {
             icon: Clock,
             color: "text-blue-500",
             bgColor: "bg-blue-100",
             borderColor: "border-blue-200",
-            label: "Ready",
+            label: "Дайын",
         },
         ON_ROAD: {
             icon: Truck,
             color: "text-yellow-500",
             bgColor: "bg-yellow-50",
             borderColor: "border-yellow-200",
-            label: "On Road",
+            label: "Жолда",
         },
         PENDING: {
             icon: Clock,
             color: "text-yellow-500",
             bgColor: "bg-yellow-50",
             borderColor: "border-yellow-200",
-            label: "Pending",
+            label: "Күтуде",
         },
         DELIVERED: {
             icon: PackageCheck,
             color: "text-emerald-500",
             bgColor: "bg-emerald-100",
             borderColor: "border-emerald-200",
-            label: "Delivered",
+            label: "Жеткізілді",
         },
         RETURNED: {
             icon: RotateCcw,
             color: "text-gray-500",
             bgColor: "bg-gray-100",
             borderColor: "border-gray-200",
-            label: "Returned",
+            label: "Қайтарылды",
         },
     };
-    console.log("statu is =>", status);
+    console.log("статусы =>", status);
     const config = statusConfig[status];
     console.log(config);
     if (!config) {

@@ -16,7 +16,7 @@ export default function Buttons() {
             price: data.price,
             otherImages: data.otherImages,
             description: data.description,
-            preparationDuration: data.duration + "min",
+            preparationDuration: data.duration + "мин",
             rating: data.rating,
             sizes: data.sizes,
             categoryId: data.categoryId,
@@ -31,19 +31,19 @@ export default function Buttons() {
             return;
         }
 
-        toast.loading("Creating your product");
+        toast.loading("Тағамыңыз қосылуда...");
         setIsLoading(true);
         apiInstance
             .post("/products", payload)
             .then(() => {
                 toast.dismiss();
-                toast.success("Product created successfully");
+                toast.success("Тағамыңыз сәтті қосылды");
                 data.reset();
                 wait(100).then(() => window.location.reload());
             })
             .catch(() => {
                 toast.dismiss();
-                toast.error("Error while creating you product");
+                toast.error("Тағамыңызды қосу кезінде қате пайда болды");
             })
             .finally(() => setIsLoading(false));
     };

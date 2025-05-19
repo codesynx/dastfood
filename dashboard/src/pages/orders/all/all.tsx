@@ -16,7 +16,7 @@ export default function AllOrders() {
         fetchData()
             .then((data) => setOrders(data))
             .catch(() => {
-                toast.error("Il ya des erreurs...");
+                toast.error("Қателер бар...");
             })
             .finally(() => setIsLoading(false));
     }, []);
@@ -28,7 +28,7 @@ export default function AllOrders() {
     return (
         <main className="flex">
             <section className="w-full">
-                <TopBar text="All orders"></TopBar>
+                <TopBar text="Барлық тапсырыстар"></TopBar>
                 <div className="h-[80px] px-10 flex items-center border bg-gray-50/50">
                     <form
                         onSubmit={(e) => {
@@ -37,7 +37,7 @@ export default function AllOrders() {
                             fetchData(searchInput)
                                 .then((data) => setOrders(data))
                                 .catch(() => {
-                                    toast.error("Il ya des erreurs...");
+                                    toast.error("Қателер бар...");
                                 })
                                 .finally(() => setIsLoading(false));
                         }}
@@ -53,7 +53,7 @@ export default function AllOrders() {
                                             .then((data) => setOrders(data))
                                             .catch(() => {
                                                 toast.error(
-                                                    "Il ya des erreurs..."
+                                                    "Қателер бар..."
                                                 );
                                             })
                                             .finally(() => setIsLoading(false));
@@ -63,7 +63,7 @@ export default function AllOrders() {
                                 type="text"
                                 className="pl-10 pr-8  h-10 bg-stone-100  !border-2 rounded-lg placeholder:text-sm shadow-stone-200 transition-all "
                                 autoComplete="off"
-                                placeholder="Search orders by customer name..."
+                                placeholder="Пайдаланушы аты бойынша іздеу..."
                             />
                             {!!searchInput && (
                                 <button
@@ -75,7 +75,7 @@ export default function AllOrders() {
                                             .then((data) => setOrders(data))
                                             .catch(() => {
                                                 toast.error(
-                                                    "Il ya des erreurs..."
+                                                    "Қателер бар..."
                                                 );
                                             })
                                             .finally(() => setIsLoading(false));

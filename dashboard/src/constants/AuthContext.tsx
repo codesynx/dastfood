@@ -22,14 +22,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             if (response.data && response.data.token) {
                 localStorage.setItem("token", response.data.token);
                 setUser(response.data.token);
-                console.log("Login successful:", response.data.token); 
+                console.log("Кіру сәтті өтті:", response.data.token); 
             } else {
-                console.error("No token found in response");
-                throw new Error("No token received from API");
+                console.error("Жауаптан токен табылмады");
+                throw new Error("API-ден токен алынбады");
             }
         } catch (error) {
-            console.error("Login failed", error);
-            throw new Error("Login failed"); 
+            console.error("Кіру сәтсіз аяқталды", error);
+            throw new Error("Кіру сәтсіз аяқталды"); 
         }
     };
 
@@ -48,7 +48,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 export const useAuth = () => {
     const context = useContext(AuthContext);
     if (!context) {
-        throw new Error("useAuth must be used within an AuthProvider");
+        throw new Error("useAuth тек AuthProvider ішінде қолданылуы керек");
     }
     return context;
 };

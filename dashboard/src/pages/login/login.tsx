@@ -10,6 +10,7 @@ export default function Login() {
     const [input, setInput] = useState({ email: "", password: "" });
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -26,13 +27,13 @@ export default function Login() {
                 await login(input.email, input.password);
                 navigate("/dashboard");
             } catch (err) {
-                setError("Login failed. Please check your credentials.");
+                setError("Кіру сәтсіз аяқталды. Енгізілген мәліметтерді тексеріңіз.");
             } finally {
                 setIsLoading(false);
             }
         } else {
             setError(
-                "Please provide a valid email and a password with at least 6 characters."
+                "Жарамды электрондық поштаны және кемінде 6 таңбадан тұратын құпиясөзді енгізіңіз."
             );
         }
     };
@@ -62,6 +63,11 @@ export default function Login() {
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
                 <div className="w-full max-w-md space-y-6">
                     <div className="text-center">
+                        <img 
+                            src="/login.png" 
+                            alt="Dastarkhana Logo" 
+                            className="mx-auto mb-12 h-50"
+                        />
                         <h1 className="text-3xl font-bold text-gray-900 mb-2">
                             Dastarkhana басқару панелі 
                         </h1>
@@ -89,13 +95,16 @@ export default function Login() {
                                 <Input
                                     id="password"
                                     name="password"
-                                    type="password"
+                                    type={showPassword ? "text" : "password"}
                                     value={input.password}
                                     onChange={handleInput}
                                     placeholder="Құпия сөз"
                                     className="w-full bg-white border-gray-200 text-gray-900 pl-10 pr-4 py-2 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                                 />
-                                <Eye className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 cursor-pointer" />
+                                <Eye 
+                                    onClick={() => setShowPassword(!showPassword)} 
+                                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 cursor-pointer" 
+                                />
                             </div>
                         </div>
 
@@ -109,7 +118,7 @@ export default function Login() {
                             <button
                                 disabled={isLoading}
                                 type="submit"
-                                className="w-full active:scale-95 transition-all disabled:opacity-80 hover:bg-stone-900 flex items-center justify-center bg-stone-800  text-white py-[10px] rounded-md ">
+                                className="w-full active:scale-95 transition-all disabled:opacity-80 hover:bg-[#2d9b3c] flex items-center justify-center bg-[#39b54a] text-white py-[10px] rounded-md ">
                                 Кіру{" "}
                                 {isLoading && (
                                     <span className="scale-75 ml-1">
